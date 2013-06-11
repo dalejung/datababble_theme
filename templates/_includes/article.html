@@ -7,6 +7,7 @@
       <h1 class="entry-title">{{ article.title|striptags }}</h1>
     {% endif %}
       <p class="meta">{% include '_includes/article_time.html' %}</p>
+      <p class="source-path">{{ article.content_source_path }}</p>
 </header>
 
 {% if index %}
