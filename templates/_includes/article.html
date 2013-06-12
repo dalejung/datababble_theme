@@ -6,8 +6,19 @@
     {% else %}
       <h1 class="entry-title">{{ article.title|striptags }}</h1>
     {% endif %}
+    <div class='review'>
+      {% if article.review_date %}
+      <p class="review-date">Reviewed: {{ article.review_date }}</p>
+      {% endif %}
+      {% if article.review_notes %}
+      <p class="review-notes">Notes: {{ article.review_notes }}</p>
+      {% endif %}
+    </div>
+
       <p class="meta">{% include '_includes/article_time.html' %}</p>
+      <div class="meta-right">
       <p class="source-path">{{ article.content_source_path }}</p>
+      </div>
 </header>
 
 {% if index %}

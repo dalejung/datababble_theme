@@ -36,8 +36,22 @@
     task[done], task.done {
       text-decoration: line-through;
     }
-    p.source-path {
+    div.meta-right {
       position: absolute; right: 0; top:0;
+    }
+    div.review p {
+      line-height:18px;
+    }
+    #blog-archives article.reviewed * {
+      text-decoration: line-through!important;
+    }
+    #blog-archives article.reviewed:hover *{
+      text-decoration: none!important;
+    }
+    #blog-archives article reviewed {
+      position:absolute;
+      top:16px;
+      right:0;
     }
   </style>
   <!-- http://t.co/dKP3o1e -->
