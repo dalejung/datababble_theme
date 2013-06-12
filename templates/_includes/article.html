@@ -7,11 +7,11 @@
       <h1 class="entry-title">{{ article.title|striptags }}</h1>
     {% endif %}
     <div class='review'>
-      {% if article.review_date %}
-      <p class="review-date">Reviewed: {{ article.review_date }}</p>
+      {% if article.reviewed %}
+      <p class="review-date">Reviewed: {{ article.reviewed }}</p>
       {% endif %}
-      {% if article.review_notes %}
-      <p class="review-notes">Notes: {{ article.review_notes }}</p>
+      {% if article.notes %}
+      <p class="review-notes">Notes: {{ article.notes }}</p>
       {% endif %}
     </div>
 

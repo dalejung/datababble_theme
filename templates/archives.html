@@ -12,7 +12,7 @@
 		    	<h2>{{ year }}</h2>
 			    {% for month, articles in date_year|groupby('date.month') | sort(reverse=True) %}
     				{% for article in articles %}
-            <article {% if article.review_date %}class="reviewed"{% endif %}>
+            <article {% if article.reviewed %}class="reviewed"{% endif %}>
 		    				<h1><a href="{{ article.url }}">{{ article.title }}</a></h1>
 			    			<time datetime="{{ article.date }}" pubdate>
 				    			<span class="month">{{ article.date.strftime('%B')[:3] }}</span> 
@@ -20,14 +20,14 @@
 						    	<span class="year">{{ article.date.strftime('%Y') }}</span> 
     						</time>
                 <reviewed>
-                {% if article.review_date %}
+                {% if article.reviewed %}
                 <div>
-                {{ article.review_date }}
+                {{ article.reviewed }}
               </div>
               {% endif %}
-                {% if article.review_notes %}
+                {% if article.notes %}
                 <div>
-                {{ article.review_notes }}
+                {{ article.notes }}
               </div>
               {% endif %}
                 </reviewed>
