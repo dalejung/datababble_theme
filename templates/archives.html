@@ -10,15 +10,27 @@
     	<div id="blog-archives">
 	    	{% for year, date_year in dates|groupby('date.year') %}
 		    	<h2>{{ year }}</h2>
-			    {% for month, articles in date_year|groupby('date.month') %}
+			    {% for month, articles in date_year|groupby('date.month') | sort(reverse=True) %}
     				{% for article in articles %}
-	    				<article>
+            <article {% if article.review_date %}class="reviewed"{% endif %}>
 		    				<h1><a href="{{ article.url }}">{{ article.title }}</a></h1>
 			    			<time datetime="{{ article.date }}" pubdate>
 				    			<span class="month">{{ article.date.strftime('%B')[:3] }}</span> 
 					    		<span class="day">{{ article.date.strftime('%d') }}</span> 
 						    	<span class="year">{{ article.date.strftime('%Y') }}</span> 
     						</time>
+                <reviewed>
+                {% if article.review_date %}
+                <div>
+                {{ article.review_date }}
+              </div>
+              {% endif %}
+                {% if article.review_notes %}
+                <div>
+                {{ article.review_notes }}
+              </div>
+              {% endif %}
+                </reviewed>
 	    					<footer>
 		    					<span class="categories">posted in 
 			    					<a class='category' href='{{ SITEROOT }}/{{ article.category.url }}'>{{ article.category }}</a>
