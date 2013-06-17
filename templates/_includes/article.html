@@ -15,10 +15,11 @@
       {% endif %}
     </div>
 
-      <p class="meta">{% include '_includes/article_time.html' %}</p>
-      <div class="meta-right">
-      <p class="source-path">{{ article.content_source_path }}</p>
-      </div>
+    <p class="meta">
+    {% include '_includes/article_time.html' %}
+    <br />
+    <span class="source-path">{{ article.content_source_path }}</span>
+    </p>
 </header>
 
 {% if index %}
